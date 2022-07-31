@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lombok on 第二大腦</title><link>https://2ndbrain.cc/tags/lombok/</link><description>Recent content in lombok on 第二大腦</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sat, 26 Jun 2021 17:09:03 +0800</lastBuildDate><atom:link href="https://2ndbrain.cc/tags/lombok/index.xml" rel="self" type="application/rss+xml"/><item><title>建置 Log4j2</title><link>https://2ndbrain.cc/posts/2021/06/setup-log4j2/</link><pubDate>Sat, 26 Jun 2021 17:09:03 +0800</pubDate><guid>https://2ndbrain.cc/posts/2021/06/setup-log4j2/</guid><description>&lt;p>Log4j2 是一套執行效能不錯的日誌工具，Lombok &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 將 Log4j2 日誌工具整合其中，
+Lombok 也讓 Log4j2 使用起來更簡潔。&lt;/p>
+&lt;h1 id="建置-log4j2">建置 Log4j2&lt;/h1>
+&lt;p>在 &lt;code>build.gradle&lt;/code> 加入 Lombok dependencies，&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-groovy" data-lang="groovy">&lt;span style="color:#268bd2">dependencies&lt;/span> {
+&lt;span style="color:#268bd2">implementation&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">compileOnly&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.projectlombok:lombok:1.18.18&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">annotationProcessor&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.projectlombok:lombok:1.18.18&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">testImplementation&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.springframework.boot:spring-boot-starter-test&amp;#39;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

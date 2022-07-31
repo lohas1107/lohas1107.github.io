@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spring-boot on 第二大腦</title><link>https://2ndbrain.cc/tags/spring-boot/</link><description>Recent content in spring-boot on 第二大腦</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sun, 31 Jul 2022 21:00:00 +0800</lastBuildDate><atom:link href="https://2ndbrain.cc/tags/spring-boot/index.xml" rel="self" type="application/rss+xml"/><item><title>部署 Spring Boot application 到 local Kubernetes cluster</title><link>https://2ndbrain.cc/posts/2022/07/spring-boot-on-kubernetes/</link><pubDate>Sun, 31 Jul 2022 21:00:00 +0800</pubDate><guid>https://2ndbrain.cc/posts/2022/07/spring-boot-on-kubernetes/</guid><description>&lt;p>簡單回顧一下之前的這篇&lt;a href="https://2ndbrain.cc/posts/2021/04/spring-boot-docker-image/">建立容器化 Spring Boot 專案&lt;/a>文章中，提到如何容器化 Spring Boot application，本篇要延續這個主題，進階到將 application 部署到 local Kubernetes cluster 上。&lt;/p>
+&lt;h1 id="容器化-spring-boot-application">容器化 Spring Boot application&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>使用 &lt;a href="https://start.spring.io">Spring Initailizr&lt;/a> 網站或
+&lt;a href="https://www.jetbrains.com/idea/">Intellij IDEA&lt;/a> 內的 Spring Initailizr 創建 Spring Boot application，服務名稱以 &lt;code>moat-api-gateway&lt;/code> 為例。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>執行以下指令建置 Docker image 到 local 的 Docker daemon&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Gradle&lt;/th>
+&lt;th style="text-align:left">Maven&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>./gradlew bootBuildImage&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>./mvnw spring-boot:build-image&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;p>就可以在 Docker Desktop 的 Dashboard 看到剛剛建置的 &lt;code>moat-api-gateway&lt;/code> image：
+&lt;img src="https://2ndbrain.cc/posts/2022/07/img/register-docker-image.png" alt="register-docker-image.png">&lt;/p>
+&lt;blockquote>
+&lt;p>值得注意的是 image 的建立時間是在 42 年前，為了重複建置 image 時能產出相同 hash 的 image id，所以 Buildpacks 的 timestamp 是固定值 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol></description></item><item><title>在 Spring Boot 使用 AOP 印日誌</title><link>https://2ndbrain.cc/posts/2021/06/spring-boot-aop-log/</link><pubDate>Sun, 27 Jun 2021 00:00:00 +0800</pubDate><guid>https://2ndbrain.cc/posts/2021/06/spring-boot-aop-log/</guid><description>&lt;p>使用 AOP (Aspect Oriented Programming) 的方式印出日誌，會比在各處程式中寫印日誌來的簡潔，
+集中管理印日誌的程式，避免影響閱讀業務邏輯。&lt;/p>
+&lt;h1 id="建置-log4j2">建置 Log4j2&lt;/h1>
+&lt;p>參考這篇&lt;a href="https://2ndbrain.cc/posts/2021/06/setup-log4j2/">建置 Log4j2&lt;/a> 文章。&lt;/p>
+&lt;h1 id="加入-dependency">加入 Dependency&lt;/h1>
+&lt;p>在 &lt;code>build.gradle&lt;/code> 加入 Spring Boot AOP dependencies：&lt;code>spring-boot-starter-aop&lt;/code>，&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-groovy" data-lang="groovy">&lt;span style="color:#268bd2">dependencies&lt;/span> {
+&lt;span style="color:#268bd2">implementation&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">implementation&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.springframework.boot:spring-boot-starter-aop&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">compileOnly&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.projectlombok:lombok:1.18.18&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">annotationProcessor&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.projectlombok:lombok:1.18.18&amp;#39;&lt;/span>
+&lt;span style="color:#268bd2">testImplementation&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.springframework.boot:spring-boot-starter-test&amp;#39;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>建立容器化 Spring Boot 專案</title><link>https://2ndbrain.cc/posts/2021/04/spring-boot-docker-image/</link><pubDate>Fri, 30 Apr 2021 16:24:00 +0800</pubDate><guid>https://2ndbrain.cc/posts/2021/04/spring-boot-docker-image/</guid><description>&lt;h1 id="建立新-spring-boot-專案">建立新 Spring Boot 專案&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>使用 Intellij IDEA 建立新專案，專案資訊如下：&lt;/p>
+&lt;ul>
+&lt;li>Spring Boot 版本：2.4.5&lt;/li>
+&lt;li>專案類型：Gradle&lt;/li>
+&lt;li>語言：Java 11&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">① 使用 Intellij IDEA 內的 Spring Initailizr 創建新專案&lt;/th>
+&lt;th style="text-align:left">② 加入 Spring Web Dependency&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;img src="https://2ndbrain.cc/posts/2021/04/img/spring-initializr.png" alt="spring-initializr">&lt;/td>
+&lt;td style="text-align:left">&lt;img src="https://2ndbrain.cc/posts/2021/04/img/spring-dependencies.png" alt="spring-dependencies">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;p>增加 &lt;code>HelloController.java&lt;/code> 如下：&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">&lt;span style="color:#dc322f;font-weight:bold">package&lt;/span> &lt;span style="color:#268bd2">cc.secondbrain.demo.controller&lt;/span>;
+&lt;span style="color:#dc322f;font-weight:bold">import&lt;/span> &lt;span style="color:#268bd2">org.springframework.web.bind.annotation.RequestMapping&lt;/span>;
+&lt;span style="color:#dc322f;font-weight:bold">import&lt;/span> &lt;span style="color:#268bd2">org.springframework.web.bind.annotation.RestController&lt;/span>;
+&lt;span style="color:#268bd2">@RestController&lt;/span>
+&lt;span style="color:#859900">public&lt;/span> &lt;span style="color:#859900">class&lt;/span> &lt;span style="color:#cb4b16">HelloController&lt;/span> {
+&lt;span style="color:#268bd2">@RequestMapping&lt;/span>(&lt;span style="color:#2aa198">&amp;#34;/&amp;#34;&lt;/span>)
+&lt;span style="color:#859900">public&lt;/span> &lt;span style="color:#268bd2">String&lt;/span> &lt;span style="color:#268bd2">hello&lt;/span>() {
+&lt;span style="color:#859900">return&lt;/span> &lt;span style="color:#2aa198">&amp;#34;Hello Spring Boot&amp;#34;&lt;/span>;
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>啟動 Spring Boot 服務，用瀏覽器瀏覽 &lt;a href="http://localhost:8080/">http://localhost:8080/&lt;/a>，就可以看到「Hello Spring Boot」&lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

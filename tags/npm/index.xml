@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>npm on 第二大腦</title><link>https://2ndbrain.cc/tags/npm/</link><description>Recent content in npm on 第二大腦</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Mon, 06 Sep 2021 22:09:05 +0800</lastBuildDate><atom:link href="https://2ndbrain.cc/tags/npm/index.xml" rel="self" type="application/rss+xml"/><item><title>在 WebStorm 建置 Jest 單元測試</title><link>https://2ndbrain.cc/posts/2021/09/setup-jest/</link><pubDate>Mon, 06 Sep 2021 22:09:05 +0800</pubDate><guid>https://2ndbrain.cc/posts/2021/09/setup-jest/</guid><description>&lt;h1 id="加入-jest-library">加入 Jest Library&lt;/h1>
+&lt;p>WebStorm 預設沒有載入 Jest，所以會無法識別 Jest 語法，&lt;br>
+要從 Preferences → Languages &amp;amp; Frameworks → JavaScript → Libraries 加入 Jest Library。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">① 點擊 Download&lt;/th>
+&lt;th style="text-align:left">② 加入 Jest Library&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;img src="https://2ndbrain.cc/posts/2021/09/img/js-libraries.png" alt="js-libraries">&lt;/td>
+&lt;td style="text-align:left">&lt;img src="https://2ndbrain.cc/posts/2021/09/img/download-jest.png" alt="download-jest">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kubernetes on 第二大腦</title><link>https://2ndbrain.cc/tags/kubernetes/</link><description>Recent content in kubernetes on 第二大腦</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sun, 31 Jul 2022 21:00:00 +0800</lastBuildDate><atom:link href="https://2ndbrain.cc/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>部署 Spring Boot application 到 local Kubernetes cluster</title><link>https://2ndbrain.cc/posts/2022/07/spring-boot-on-kubernetes/</link><pubDate>Sun, 31 Jul 2022 21:00:00 +0800</pubDate><guid>https://2ndbrain.cc/posts/2022/07/spring-boot-on-kubernetes/</guid><description>&lt;p>簡單回顧一下之前的這篇&lt;a href="https://2ndbrain.cc/posts/2021/04/spring-boot-docker-image/">建立容器化 Spring Boot 專案&lt;/a>文章中，提到如何容器化 Spring Boot application，本篇要延續這個主題，進階到將 application 部署到 local Kubernetes cluster 上。&lt;/p>
+&lt;h1 id="容器化-spring-boot-application">容器化 Spring Boot application&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>使用 &lt;a href="https://start.spring.io">Spring Initailizr&lt;/a> 網站或
+&lt;a href="https://www.jetbrains.com/idea/">Intellij IDEA&lt;/a> 內的 Spring Initailizr 創建 Spring Boot application，服務名稱以 &lt;code>moat-api-gateway&lt;/code> 為例。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>執行以下指令建置 Docker image 到 local 的 Docker daemon&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Gradle&lt;/th>
+&lt;th style="text-align:left">Maven&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>./gradlew bootBuildImage&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>./mvnw spring-boot:build-image&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;li>
+&lt;p>就可以在 Docker Desktop 的 Dashboard 看到剛剛建置的 &lt;code>moat-api-gateway&lt;/code> image：
+&lt;img src="https://2ndbrain.cc/posts/2022/07/img/register-docker-image.png" alt="register-docker-image.png">&lt;/p>
+&lt;blockquote>
+&lt;p>值得注意的是 image 的建立時間是在 42 年前，為了重複建置 image 時能產出相同 hash 的 image id，所以 Buildpacks 的 timestamp 是固定值 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>
