@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cucumber on 第二大腦</title><link>https://2ndbrain.cc/tags/cucumber/</link><description>Recent content in cucumber on 第二大腦</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sun, 02 May 2021 00:30:02 +0800</lastBuildDate><atom:link href="https://2ndbrain.cc/tags/cucumber/index.xml" rel="self" type="application/rss+xml"/><item><title>排程執行 Cucumber 測試</title><link>https://2ndbrain.cc/posts/2021/05/separate-cucumber-test/</link><pubDate>Sun, 02 May 2021 00:30:02 +0800</pubDate><guid>https://2ndbrain.cc/posts/2021/05/separate-cucumber-test/</guid><description>&lt;h1 id="何時執行整合測試">何時執行整合測試？&lt;/h1>
-&lt;p>通常整合測試執行時間比單元測試長很多，也因為整合測試的執行頻率無法像單元測試一樣頻繁，比較適合每日排程執行。
-為了在進行開發而頻繁執行測試時，不需要等待整合測試執行，所以特別將整合測試獨立成一個 Source Set，不和單元測試程式放在一起。&lt;/p>
-&lt;p>另一種方式是將整合測試獨立成一個專案，在 Gradle 設定上應該會比較簡單 XD。
-以下說明是針對比較搞剛的 Gradle Source Set &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p></description></item></channel></rss>

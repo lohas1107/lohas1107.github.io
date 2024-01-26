@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>junit-jupiter on 第二大腦</title><link>https://2ndbrain.cc/tags/junit-jupiter/</link><description>Recent content in junit-jupiter on 第二大腦</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sun, 16 May 2021 10:50:16 +0800</lastBuildDate><atom:link href="https://2ndbrain.cc/tags/junit-jupiter/index.xml" rel="self" type="application/rss+xml"/><item><title>執行 Junit Jupiter 測試的疑難雜症</title><link>https://2ndbrain.cc/posts/2021/05/setup-junit-jupiter/</link><pubDate>Sun, 16 May 2021 10:50:16 +0800</pubDate><guid>https://2ndbrain.cc/posts/2021/05/setup-junit-jupiter/</guid><description>&lt;p>以下用 Gradle 6.8.3 為例，列出幾個在執行 Junit Jupiter 測試時的疑難雜症，希望能少點踩雷的時間。&lt;/p>
-&lt;h3 id="cannot-resolve-symbol-jupiter">Cannot resolve symbol &amp;lsquo;jupiter&amp;rsquo;&lt;/h3>
-&lt;p>在 &lt;code>build.gradle&lt;/code> 加入 &lt;code>junit-jupiter&lt;/code> 的 dependency，&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-groovy" data-lang="groovy">&lt;span style="color:#268bd2">dependencies&lt;/span> {
-...
-&lt;span style="color:#93a1a1;font-style:italic">// Use JUnit test framework
-&lt;/span>&lt;span style="color:#93a1a1;font-style:italic">&lt;/span> &lt;span style="color:#268bd2">testImplementation&lt;/span> &lt;span style="color:#2aa198">&amp;#39;org.junit.jupiter:junit-jupiter-api:5.3.2&amp;#39;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
