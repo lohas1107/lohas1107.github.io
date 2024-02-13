@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_2_ndbrain=self.webpackChunk_2_ndbrain||[]).push([[1165],{2687:e=>{e.exports=JSON.parse('{"permalink":"/zh-TW/blog/tags/hola","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
