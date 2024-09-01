@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_2_ndbrain=self.webpackChunk_2_ndbrain||[]).push([[7393],{1838:s=>{s.exports=JSON.parse('{"blogBasePath":"/zh-TW/blog","blogTitle":"Blog","authorsListPath":"/zh-TW/blog/authors"}')}}]);
